@@ -9,5 +9,5 @@ Le bon fonctionnement des deux commandes a été testé et obsérvé avec Wiresh
 N'ayant pas réussi à utiliser le serveur local disponible sur moodle à cause du port qu'il utilisait, j'ai utilisé un serveur local sur le port 69 : [Xinetd](https://mohammadthalif.wordpress.com/2010/03/05/installing-and-testing-tftpd-in-ubuntudebian/).
 Le code n'a cependant pas pu être testé avec des fichiers de type .PNG . 
 
-Une amélioration aurait été d'implémenter l'utilisation de la fonction blocksize.
+Une amélioration aurait été d'implémenter l'utilisation de l'option blocksize.
 
