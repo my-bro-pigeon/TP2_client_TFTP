@@ -77,7 +77,7 @@ int creat_connection_socket( struct addrinfo **serv_addr, char * IP, char * port
 	hints.ai_family= AF_INET;   // Autorise IPv4 
 	hints.ai_socktype = SOCK_DGRAM;  // Mode datagramme (UDP)
 	hints.ai_flags = 0;
-    hints.ai_protocol = IPPROTO_UDP; // protocol UDP
+    hints.ai_protocol = IPPROTO_UDP; // protocole UDP
     if((sock = getaddrinfo(IP, port, &hints, serv_addr)) != 0){ perror("Error getaddrinfo impossible \n"); exit(EXIT_FAILURE);} //Récupération des informations sur le serveur
     if((sockfd = socket((*serv_addr)->ai_family, (*serv_addr)->ai_socktype, (*serv_addr)->ai_protocol))==-1){ perror("Error socket impossible créer\n"); exit(EXIT_FAILURE);} //Ouverture du socket
     
@@ -88,7 +88,7 @@ int creat_connection_socket( struct addrinfo **serv_addr, char * IP, char * port
 
 
 								   /*                   ----------------------------------------------------------------   */
-int make_rrq(char * name_file, char * mode, char** rrq){           /* Packet RRQ   :::  || opcode(2bytes) || filename || 0(1byte) || mode || 0(1byte) ||   */
+int make_rrq(char * name_file, char * mode, char** rrq){           /* Packet RRQ  ::: || opcode(2bytes)=1 || filename || 0(1byte) || mode || 0(1byte) ||   */
 	char *rrq_packet;					   /*                   ----------------------------------------------------------------   */
 	int len_packet;
 	len_packet = (2+ strlen(name_file) + 1 + strlen(mode) + 1)*sizeof(char);
@@ -147,7 +147,7 @@ void get_data(struct addrinfo *serv_addr, int sockfd, char* name_file){						/* 
 			// Stockage des données dans le buffer : 
 			if((size_packet = recvfrom(sockfd, buff, DATA_LENGTH,0, serv_addr->ai_addr, &serv_addr->ai_addrlen))==-1){ perror("impossible de recevoir des données\n"); exit(EXIT_FAILURE);}
 			
-			// Si l'Opcode des données envoyés vaut 5, il s'agit d'un paquet d'erreur :
+			// Si l'Opcode des données envoyé vaut 5, il s'agit d'un paquet d'erreur :
 			if(buff[0]=='0' && buff[1]=='5'){
 				fwrite(buff+4, sizeof(char),size_packet-5, stdout);  // On affiche alors le message d'erreur. 
 				exit(EXIT_FAILURE);
