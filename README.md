@@ -1,7 +1,7 @@
 # 👨‍💻 TP2_client_TFTP
 
 Vous trouverez ici le client TFTP réalisé lors du deuxième TP de majeur informatique.
-Les commandes disponibles sont : 
+Les commandes disponibles sont: 
 - L'acquisition d'un fichier via [gettftp](/gettftp.c) : ./gettftp {adresse TP} {nom du fichier}
 - L'envoi d'un fichier via [puttftp](/puttftp.c) : ./puttftp {adresse IP} {nom du fichier}
     
