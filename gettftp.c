@@ -87,9 +87,9 @@ int creat_connection_socket( struct addrinfo **serv_addr, char * IP, char * port
 
 
 
-																   /*                   ----------------------------------------------------------------   */
+								   /*                   ----------------------------------------------------------------   */
 int make_rrq(char * name_file, char * mode, char** rrq){           /* Packet RRQ   :::  || opcode(2bytes) || filename || 0(1byte) || mode || 0(1byte) ||   */
-	char *rrq_packet;											   /*                   ----------------------------------------------------------------   */
+	char *rrq_packet;					   /*                   ----------------------------------------------------------------   */
 	int len_packet;
 	len_packet = (2+ strlen(name_file) + 1 + strlen(mode) + 1)*sizeof(char);
 	
@@ -130,7 +130,7 @@ void send_rrq(struct addrinfo *serv_addr, int sockfd, char* name_file, char * mo
 
 
 /*                   -------------------------------------------------------------   */
-/* Packet ACK   :::  || opcode(2bytes)=3 || block(2bytes) || data(max 512bytes) ||   */
+/* Packet DATA  :::  || opcode(2bytes)=3 || block(2bytes) || data(max 512bytes) ||   */
 /*                   -------------------------------------------------------------   */
 														/*                   ---------------------------------------   */
 void get_data(struct addrinfo *serv_addr, int sockfd, char* name_file){						/* Packet ACK   :::  || opcode(2bytes)=4 || block(2bytes) ||   */
