@@ -81,9 +81,9 @@ int creat_connection_socket( struct addrinfo **serv_addr, char * IP, char * port
     return sockfd;    
 	
 }
-																   /*                   ------------------------------------------------------------------   */
+								   /*                   ------------------------------------------------------------------   */
 int make_wrq(char * name_file, char * mode, char** wrq){           /* Packet WRQ   :::  || opcode(2bytes)=2 || filename || 0(1byte) || mode || 0(1byte) ||   */
-	char *wrq_packet;											   /*                   ------------------------------------------------------------------   */
+	char *wrq_packet;					   /*                   ------------------------------------------------------------------   */
 	int len_packet;
 	len_packet = (2+ strlen(name_file) + 1 + strlen(mode) + 1)*sizeof(char);
 	
