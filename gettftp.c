@@ -132,9 +132,9 @@ void send_rrq(struct addrinfo *serv_addr, int sockfd, char* name_file, char * mo
 /*                   -------------------------------------------------------------   */
 /* Packet ACK   :::  || opcode(2bytes)=3 || block(2bytes) || data(max 512bytes) ||   */
 /*                   -------------------------------------------------------------   */
-																							/*                   ---------------------------------------   */
+														/*                   ---------------------------------------   */
 void get_data(struct addrinfo *serv_addr, int sockfd, char* name_file){						/* Packet ACK   :::  || opcode(2bytes)=4 || block(2bytes) ||   */
-	int size_packet;																		/*                   ---------------------------------------   */
+	int size_packet;											/*                   ---------------------------------------   */
 	int size_write;
 	char *buff;
 	buff=malloc(DATA_LENGTH*sizeof(char));
